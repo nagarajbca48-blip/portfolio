@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>R. Nagaraj · BCA student & developer</title>
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -175,14 +175,12 @@
     .photo-frame:hover {
       box-shadow: 0 40px 60px -15px #020100, 0 0 0 4px #e2bc7c, 0 0 0 12px #33281c;
     }
-    .photo-frame i {
-      font-size: 10rem;
-      color: #ccb185;
-      filter: drop-shadow(0 0 15px #ac8d55);
-      transition: transform 0.3s;
-    }
-    .photo-frame:hover i {
-      transform: scale(1.02);
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+      display: block;
     }
     .photo-frame::after {
       content: "";
@@ -224,7 +222,7 @@
       width: 100%;
     }
 
-    /* about card — human tone + university highlight */
+    /* about card */
     .about-card {
       background: rgba(20, 18, 24, 0.7);
       backdrop-filter: blur(8px);
@@ -326,7 +324,7 @@
     /* PROJECTS grid */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 3rem;
       margin: 4rem 0;
     }
@@ -371,11 +369,6 @@
       font-size: 1.15rem;
       margin-bottom: 1.8rem;
       line-height: 1.6;
-    }
-    .image{
-      width:300px;
-      border-radius: 50%;
-      margin-top: 70px;
     }
     .tech-tag {
       display: inline-block;
@@ -482,15 +475,102 @@
       color: #b8904a;
     }
 
+    /* ========== ENHANCED MOBILE RESPONSIVENESS ========== */
     @media (max-width: 900px) {
+      .container { padding: 0 2rem; }
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 2rem;
+      }
+      .nav-links { gap: 2rem; flex-wrap: wrap; justify-content: center; }
       .hero-name { font-size: 4.5rem; }
-      .photo-frame { flex-basis: 260px; height: 260px; }
-      .photo-frame i { font-size: 7rem; }
-      .navbar { flex-direction: column; gap: 1rem; }
-      .nav-links { gap: 2rem; }
-      .contact-palace { flex-direction: column; align-items: flex-start; }
-      .contact-glyph { border-left: none; padding-left: 0; margin-top: 2rem; }
+      .photo-frame {
+        flex-basis: 280px;
+        height: 280px;
+      }
+      .contact-palace {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 3rem;
+      }
+      .contact-glyph {
+        border-left: none;
+        padding-left: 0;
+        margin-top: 2rem;
+      }
       .social-links { gap: 2rem; }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 1.5rem; }
+      .navbar { padding: 1rem 1.5rem; }
+      .logo { font-size: 2rem; }
+      .logo span { font-size: 1.7rem; }
+      .nav-links a { font-size: 1.1rem; }
+
+      .hero { padding: 3rem 0 2rem; gap: 2rem; }
+      .greeting { font-size: 1.2rem; letter-spacing: 3px; }
+      .hero-name { font-size: 3.5rem; }
+      .hero-titles span { font-size: 1.2rem; padding-left: 1.8rem; }
+      .hero-desc { font-size: 1.2rem; padding-left: 1.5rem; }
+
+      .photo-frame {
+        flex-basis: 240px;
+        height: 240px;
+      }
+
+      .section-title { font-size: 2.8rem; margin: 2.5rem 0 1.5rem; }
+      .section-title::before { bottom: -1.2rem; font-size: 1rem; }
+
+      .about-card { padding: 2rem 1.5rem; border-radius: 60px 8px 60px 8px; }
+      .about-text { font-size: 1.2rem; }
+      .about-text i { font-size: 1.5rem; }
+      .university-line {
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
+        border-radius: 60px 8px 60px 8px;
+      }
+      .university-line i { font-size: 1.5rem; }
+      .university-line span { margin-left: 1rem !important; display: inline; }
+
+      .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .skill-item { padding: 1.5rem 0.5rem; }
+      .skill-item i { font-size: 2.5rem; }
+
+      .projects-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .project-media { height: 180px; font-size: 3.5rem; }
+      .project-content { padding: 1.8rem 1.2rem; }
+      .project-content h3 { font-size: 1.8rem; }
+
+      .royal-note {
+        padding: 1.5rem 1.8rem;
+        font-size: 1.1rem;
+        border-radius: 100px 8px 100px 8px;
+      }
+
+      .contact-palace {
+        padding: 2rem 1.5rem;
+        border-radius: 80px 8px 80px 8px;
+      }
+      .contact-row {
+        font-size: 1.1rem;
+        gap: 1rem;
+      }
+      .contact-row i { font-size: 1.8rem; width: 2.2rem; }
+      .social-links { gap: 1.5rem; margin-top: 1.5rem; }
+      .social-links a { font-size: 2rem; }
+      .contact-glyph { font-size: 4rem; }
+
+      .footer { padding: 2rem 0 1.5rem; font-size: 1rem; }
+    }
+
+    @media (max-width: 400px) {
+      .hero-name { font-size: 2.8rem; }
+      .hero-titles { gap: 1.2rem; }
+      .hero-titles span { font-size: 1rem; }
+      .photo-frame { flex-basis: 200px; height: 200px; }
+      .skills-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -506,7 +586,7 @@
   </nav>
 
   <main class="container">
-    <!-- HERO (student vibe refined) -->
+    <!-- HERO -->
     <section class="hero">
       <div class="hero-content">
         <div class="greeting">⚜ the architect ⚜</div>
@@ -520,15 +600,13 @@
           I'm a BCA student at Bharathidasan University who loves building things with code. Every project is a chance to learn something new and craft digital experiences that feel both useful and personal.
         </p>
       </div>
-      <!-- photo frame -->
+      <!-- photo frame with proper image -->
       <div class="photo-frame">
-        <i class="">
-          <img class="image" src="image.jpeg" alt="R. Nagaraj">
-        </i> <!-- student cap icon -->
+        <img src="image.jpeg" alt="R. Nagaraj">
       </div>
     </section>
 
-    <!-- ABOUT ME — now with university, BCA identity, and refined voice -->
+    <!-- ABOUT ME -->
     <section id="about">
       <h2 class="section-title">About me</h2>
       <div class="about-card">
@@ -536,7 +614,6 @@
          <p><i class="fas fa-feather-alt"></i> I'm R. Nagaraj, a first-year BCA student at <strong>Bharathidasan University</strong>, deeply committed to mastering the fundamentals of software engineering. My current focus is on building a solid base with languages like C, C++, and Java, while actively exploring the creative possibilities of web development with HTML and JavaScript. I believe that the best learning happens by doing, which is why I'm constantly working on small projects to understand how to design and create functional websites. This is just the start of my journey, and I'm excited for the challenges ahead.</p>
           <p><i class="fas fa-mug-hot"></i> Right now I'm focused on learning modern frameworks (React, Vue, Node), contributing to small open‑source projects, and building tools that make student life easier. Outside of code, I enjoy filter coffee, sci‑fi stories, and playing chess with friends. Comfortable with both frontend finesse and backend logic — I just love turning ideas into reality.</p>
         </div>
-        <!-- highlighted university line (exactly as requested) -->
         <div class="university-line">
           <i class="fas fa-university"></i> Pursuing Excellence at <b>Bharathidasan University</b><br>
           <span style="margin-left: 2.8rem; display: inline-block;">Crafting digital solutions from Kumbakonam.</span>
@@ -544,7 +621,7 @@
       </div>
     </section>
 
-    <!-- SKILLS (unchanged) -->
+    <!-- SKILLS -->
     <section id="skills">
       <h2 class="section-title">Arsenal & expertise</h2>
       <div class="skills-grid">
@@ -565,11 +642,10 @@
       </div>
     </section>
 
-    <!-- PROJECTS (student‑focused descriptions) -->
+    <!-- PROJECTS -->
     <section id="projects">
       <h2 class="section-title">PROJECTS</h2>
       <div class="projects-grid">
-        <!-- project 1: CampusConnect -->
         <div class="project-card">
           <div class="project-media"><i class="fas fa-university"></i></div>
           <div class="project-content">
@@ -581,7 +657,6 @@
             <span class="tech-tag">Tailwind</span>
           </div>
         </div>
-        <!-- project 2: HostelHelper -->
         <div class="project-card">
           <div class="project-media"><i class="fas fa-utensils"></i></div>
           <div class="project-content">
@@ -593,7 +668,6 @@
             <span class="tech-tag">Vite</span>
           </div>
         </div>
-        <!-- project 3: PaperPilot -->
         <div class="project-card">
           <div class="project-media"><i class="fas fa-file-alt"></i></div>
           <div class="project-content">
@@ -611,7 +685,7 @@
       </div>
     </section>
 
-    <!-- CONTACT (updated with your details + Instagram & Facebook) -->
+    <!-- CONTACT -->
     <section id="contact">
       <h2 class="section-title">Connect with me</h2>
       <div class="contact-palace">
@@ -625,7 +699,6 @@
             <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
             <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
-            <!-- New Instagram and Facebook icons added -->
             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           </div>
